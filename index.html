@@ -229,5 +229,71 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal__overlay" tabindex="-1"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Cerrar">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="modal__view" id="formView">
+        <div class="modal__header">
+          <h2 class="modal__title" id="modal-title">Reservá tu evaluación inicial</h2>
+          <p class="modal__description">Completá tus datos y te contactaremos para coordinar el día y horario de tu evaluación gratuita.</p>
+        </div>
+        <form class="modal__form" id="evaluationForm" novalidate>
+          <div class="modal__form-body">
+            <div class="modal__field">
+              <label for="name">Nombre completo <span class="modal__required">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Ej: Juan Pérez">
+            </div>
+            <div class="modal__row">
+              <div class="modal__field">
+                <label for="email">Email <span class="modal__required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com">
+              </div>
+              <div class="modal__field">
+                <label for="phone">Teléfono <span class="modal__required">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="11 1234-5678">
+              </div>
+            </div>
+            <div class="modal__field">
+              <label for="goal">Objetivo principal</label>
+              <select id="goal" name="goal">
+                <option value="">Seleccioná tu objetivo</option>
+                <option value="perdida">Pérdida de peso</option>
+                <option value="masa">Ganar masa muscular</option>
+                <option value="rendimiento">Rendimiento deportivo</option>
+                <option value="tonificar">Tonificar</option>
+                <option value="salud">Salud general</option>
+              </select>
+            </div>
+            <div class="modal__field">
+              <label for="message">Comentario adicional</label>
+              <textarea id="message" name="message" rows="3" placeholder="Contanos sobre tu experiencia, lesiones, horarios disponibles..."></textarea>
+            </div>
+            <div class="modal__error" id="formError">Completá todos los campos obligatorios con formato válido antes de enviar.</div>
+            <button type="submit" class="modal__submit">Enviar solicitud</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal__view modal__view--hidden" id="successView">
+        <div class="modal__header">
+          <div class="modal__success-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+          </div>
+          <h2 class="modal__title">Solicitud enviada</h2>
+          <p class="modal__description" id="successMessage">Gracias. Nos pondremos en contacto pronto para coordinar tu evaluación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
