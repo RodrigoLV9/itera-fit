@@ -486,12 +486,28 @@ a:hover {
 
 /* ----- Metodología ----- */
 .metodologia {
+  position: relative;
   padding-top: var(--section-padding-y);
   padding-bottom: var(--section-padding-y);
   background-color: var(--color-bg-secondary);
+  overflow: hidden;
+}
+
+.metodologia::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 245, 160, 0.03) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .metodologia__container {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: var(--max-width-container);
   margin-left: auto;
@@ -500,9 +516,20 @@ a:hover {
   padding-right: var(--gutter);
 }
 
-.metodologia__title {
-  margin-bottom: 3.5rem;
+.metodologia__header {
   text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.metodologia__title {
+  margin-bottom: 0.75rem;
+}
+
+.metodologia__subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
 }
 
 .metodologia__cards {
@@ -512,29 +539,87 @@ a:hover {
 }
 
 .metodologia__card {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem;
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
   transition:
     transform var(--transition-base),
     box-shadow var(--transition-base),
     border-color var(--transition-base);
 }
 
+.metodologia__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent-hover));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.metodologia__card:hover::before {
+  transform: scaleX(1);
+}
+
 .metodologia__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-  border-color: var(--color-accent);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 245, 160, 0.3);
+}
+
+.metodologia__card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.metodologia__card-step {
+  font-size: 2.75rem;
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1;
+  color: var(--color-border);
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.metodologia__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--color-accent-dim);
+  color: var(--color-accent);
+  flex-shrink: 0;
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.metodologia__card:hover .metodologia__card-icon {
+  background-color: rgba(0, 245, 160, 0.18);
+  transform: scale(1.05);
 }
 
 .metodologia__card-title {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--color-text-primary);
 }
 
 .metodologia__card-text {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
 }
 
 /* ----- Instalaciones ----- */
@@ -918,6 +1003,19 @@ a:hover {
 
   .metodologia__card {
     padding: 1.5rem;
+  }
+
+  .metodologia__subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .metodologia__card-step {
+    font-size: 2.25rem;
+  }
+
+  .metodologia__card-icon {
+    width: 40px;
+    height: 40px;
   }
 
   .instalaciones__gallery {
