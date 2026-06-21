@@ -868,6 +868,7 @@ a:hover {
 
 .planes__card-cta:hover {
   background-color: var(--color-accent-hover);
+  color: var(--color-bg-primary);
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0, 245, 160, 0.3);
 }
